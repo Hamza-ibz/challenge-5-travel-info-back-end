@@ -1,0 +1,90 @@
+GET http://localhost:3000
+
+###
+
+# GET http://localhost:3000
+
+
+POST http://localhost:3000
+content-type: application/json
+
+{
+    
+    "email": "test4@example.com",
+    "password": "securepassword",
+    "favouriteLocations": [
+
+    ]
+  
+}
+
+###
+
+# POST http://127.0.0.1:4000/add
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /add"
+# }
+
+# ###
+
+# PUT http://127.0.0.1:4000/edit/1
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /edit/1"
+# }
+
+# ###
+
+# GET http://127.0.0.1:3000
+
+# ###
+
+# GET http://127.0.0.1:3000/somesubroute
+
+# ###
+
+# POST http://127.0.0.1:3000/
+# content-type: application/json
+
+# {
+#     "data": "stuff sent"
+# }
+
+# ###
+
+# POST http://127.0.0.1:3000/add
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /add"
+# }
+
+# ###
+
+# PUT http://127.0.0.1:3000/edit/1
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /edit/1"
+# }
+
+# ###
+
+# PUT http://127.0.0.1:3000/edit/10123
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /edit/10123"
+# }
+
+# ###
+
+# PUT http://127.0.0.1:3000/edit/10123/456
+# content-type: application/json
+
+# {
+#     "data": "stuff sent to /edit/10123"
+# }

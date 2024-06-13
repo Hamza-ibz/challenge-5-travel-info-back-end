@@ -5,4 +5,15 @@ export default class UsersService {
         // return "Getting Todos from service";
         return await Users.find({}); // find({}) mean find all objects
     };
+
+    registerUser = async (newUser) => {
+        let user;
+        try {
+            user = new Users(newUser);
+        } catch (e) {
+            throw new Error("Invalid User");
+        }
+        return await user.save();
+    };
+
 }

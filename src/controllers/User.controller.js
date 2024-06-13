@@ -16,4 +16,19 @@ export default class UserController {
         }
     };
 
+    registerUser = async (req, res) => {
+        const invalidError = new Error("Invalid User");
+        try {
+            if (!req.body) throw invalidError;
+            const newUser = await this.#service.registerUser(req.body);
+            if (!newUser._id) throw new Error("Unable to create User");
+            res.status(201).json(newUser);
+        } catch (e) {
+            if (e.message === invalidError.message) {
+                res.status(400).json({ message: e.message });
+            }
+            res.status(500).json({ message: e.message });
+        }
+    };
+
 }

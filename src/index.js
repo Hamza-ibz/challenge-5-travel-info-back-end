@@ -4,7 +4,6 @@ import Config from "./config/Config.js";
 import Database from "./db/Database.js";
 import Server from "./server/Server.js";
 import UserRoutes from "./routes/User.routes.js";
-
 Config.load();
 const { PORT, HOST, DB_URI } = process.env;
 
