@@ -17,6 +17,7 @@ export default class UserController {
     };
 
     registerUser = async (req, res) => {
+
         const invalidError = new Error("Invalid User");
         try {
             if (!req.body) throw invalidError;
@@ -29,6 +30,22 @@ export default class UserController {
             }
             res.status(500).json({ message: e.message });
         }
+    };
+
+    loginUser = async (req, res) => {
+        const invalidError = new Error("Invalid User");
+        console.log(req);
+        try {
+            if (!req.body) throw invalidError;
+            const { email, password } = req.body;
+            const result = await this.#service.loginUser(email, password);
+            console.log(result);
+            res.json(result);
+        } catch (e) {
+            res.status(500).json({ message: e.message });
+        }
+
+
     };
 
 }

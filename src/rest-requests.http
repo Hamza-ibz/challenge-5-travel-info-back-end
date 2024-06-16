@@ -1,23 +1,33 @@
-GET http://localhost:3000
+GET http://localhost:3000/getUsers
 
 ###
 
 # GET http://localhost:3000
 
 
-POST http://localhost:3000
+POST http://localhost:3000/register
 content-type: application/json
 
 {
-    
-    "email": "test4@example.com",
-    "password": "securepassword",
-    "favouriteLocations": [
 
-    ]
-  
+"email": "m@ma.comf",
+"favouriteLocations": [],
+"password": "$2b$10$4QJx9tcw9WHK3TRBiT95q.avgNcg9MQfbNihZu7l7IK6.IW2UVcNW"
 }
 
+# POST http://localhost:3000/register
+# content-type: application/json
+
+# {
+
+#     "email": "test16@example.com",
+#     "password": "securepassword",
+#     "favouriteLocations": [
+
+#     ]
+# }
+
+# Hamza!234
 ###
 
 # POST http://127.0.0.1:4000/add
