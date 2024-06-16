@@ -27,12 +27,12 @@ export default class UsersService {
     loginUser = async (email, password) => {
         const user = await Users.findOne({ email });
         if (!user) {
-            throw new Error("Invalid credentials");
+            throw new Error("Invalid credentials for for Email");
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            throw new Error("Invalid credentials");
+            throw new Error("Invalid credentials for Password");
         }
 
         const payload = { userId: user._id };
