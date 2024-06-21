@@ -12,9 +12,9 @@ export default class FavouritesService {
         return user.favouriteLocations;
     };
 
-    updateFavouriteLocations = async (email, location) => {
+    updateFavouriteLocations = async (userId, location) => {
         const user = await Users.findOneAndUpdate(
-            { email },
+            { _id: userId },
             { $addToSet: { favouriteLocations: { location } } },
             { new: true }
         );

@@ -21,9 +21,10 @@ export default class FavouritesController {
 
     addFavouriteLocation = async (req, res) => {
         try {
-            const email = req.email;
+            const userId = req.userId;
+            console.log(userId);
             const { location } = req.body;
-            const updatedUser = await this.#service.updateFavouriteLocations(email, location);
+            const updatedUser = await this.#service.updateFavouriteLocations(userId, location);
             res.json(updatedUser);
         } catch (e) {
             res.status(500).json({ message: e.message });

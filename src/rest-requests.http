@@ -50,6 +50,15 @@ GET http://localhost:3000/favouriteLocations
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1ODBkMDFkOWE0Y2FhZmQ2ZmJjNmQiLCJpYXQiOjE3MTg5NzY3MzEsImV4cCI6MTcxODk4MDMzMX0.qtFt4hlqR8S6OeqqsR1_sU8YjlS4srXjSbh0o7fq88s
 
 ###
+POST http://localhost:3000/favouriteLocations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1ODBkMDFkOWE0Y2FhZmQ2ZmJjNmQiLCJpYXQiOjE3MTg5NzY3MzEsImV4cCI6MTcxODk4MDMzMX0.qtFt4hlqR8S6OeqqsR1_sU8YjlS4srXjSbh0o7fq88s
+Content-Type: application/json
+
+{
+    "location": "London"
+}
+
+###
 POST http://localhost:3000/register
 Content-Type: application/json
 

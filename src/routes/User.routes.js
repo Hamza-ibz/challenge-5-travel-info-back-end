@@ -26,8 +26,8 @@ export default class UserRoutes {
 
         // Favourite locations routes
         this.#router.get("/favouriteLocations", authMiddleware, this.#favouritesController.getFavouriteLocations);
-        //     this.#router.post("/favouriteLocations", authMiddleware, this.#favouritesController.addFavouriteLocation);
-        //     this.#router.delete("/favouriteLocations", authMiddleware, this.#favouritesController.removeFavouriteLocation);
+        this.#router.post("/favouriteLocations", authMiddleware, this.#favouritesController.addFavouriteLocation);
+        this.#router.delete("/favouriteLocations", authMiddleware, this.#favouritesController.removeFavouriteLocation);
     }
 
     getRouter = () => {
