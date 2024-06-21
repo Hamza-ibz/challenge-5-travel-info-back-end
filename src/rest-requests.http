@@ -10,91 +10,58 @@ content-type: application/json
 
 {
 
-"email": "m@ma.comf",
-"favouriteLocations": [],
-"password": "$2b$10$4QJx9tcw9WHK3TRBiT95q.avgNcg9MQfbNihZu7l7IK6.IW2UVcNW"
+    "email": "test16@example.com",
+    "password": "securepassword",
+    "favouriteLocations": [
+
+    ]
 }
 
-# POST http://localhost:3000/register
-# content-type: application/json
+###
+POST http://localhost:3000/register
+content-type: application/json
 
-# {
+{
 
-#     "email": "test16@example.com",
-#     "password": "securepassword",
-#     "favouriteLocations": [
+    "email": "test16@example.com",
+    "password": "securepassword",
+    "favouriteLocations": [
 
-#     ]
-# }
+    ]
+}
+
+###
+
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+
+    "email": "test16@example.com",
+    "password": "securepassword",
+    "favouriteLocations": [
+
+    ]
+}
 
 # Hamza!234
 ###
+GET http://localhost:3000/favouriteLocations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1ODBkMDFkOWE0Y2FhZmQ2ZmJjNmQiLCJpYXQiOjE3MTg5NzY3MzEsImV4cCI6MTcxODk4MDMzMX0.qtFt4hlqR8S6OeqqsR1_sU8YjlS4srXjSbh0o7fq88s
 
-# POST http://127.0.0.1:4000/add
-# content-type: application/json
+###
+POST http://localhost:3000/register
+Content-Type: application/json
 
-# {
-#     "data": "stuff sent to /add"
-# }
+{
+    "email": "testuser@example.com",
+    "password": "securepassword"
+}
+###
+POST http://localhost:3000/login
+Content-Type: application/json
 
-# ###
-
-# PUT http://127.0.0.1:4000/edit/1
-# content-type: application/json
-
-# {
-#     "data": "stuff sent to /edit/1"
-# }
-
-# ###
-
-# GET http://127.0.0.1:3000
-
-# ###
-
-# GET http://127.0.0.1:3000/somesubroute
-
-# ###
-
-# POST http://127.0.0.1:3000/
-# content-type: application/json
-
-# {
-#     "data": "stuff sent"
-# }
-
-# ###
-
-# POST http://127.0.0.1:3000/add
-# content-type: application/json
-
-# {
-#     "data": "stuff sent to /add"
-# }
-
-# ###
-
-# PUT http://127.0.0.1:3000/edit/1
-# content-type: application/json
-
-# {
-#     "data": "stuff sent to /edit/1"
-# }
-
-# ###
-
-# PUT http://127.0.0.1:3000/edit/10123
-# content-type: application/json
-
-# {
-#     "data": "stuff sent to /edit/10123"
-# }
-
-# ###
-
-# PUT http://127.0.0.1:3000/edit/10123/456
-# content-type: application/json
-
-# {
-#     "data": "stuff sent to /edit/10123"
-# }
+{
+    "email": "testuser@example.com",
+    "password": "securepassword"
+}

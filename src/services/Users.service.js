@@ -36,7 +36,7 @@ export default class UsersService {
         }
 
         const payload = { userId: user._id };
-        const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(payload, JWT_SECRET, { expiresIn: '24h' });
 
         return { token }; // return { token: token };
     };
