@@ -16,6 +16,17 @@ export default class UserController {
         }
     };
 
+    updatePassword = async (req, res) => { // Add updatePassword method
+        try {
+            const { currentPassword, newPassword } = req.body;
+            const userId = req.userId;
+            await this.#service.updatePassword(userId, currentPassword, newPassword);
+            res.status(200).json({ message: 'Password updated successfully' });
+        } catch (e) {
+            res.status(500).json({ message: e.message });
+        }
+    };
+
     registerUser = async (req, res) => {
 
         const invalidError = new Error("Invalid User");

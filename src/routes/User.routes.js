@@ -23,6 +23,8 @@ export default class UserRoutes {
         this.#router.get("/getUsers", this.#userController.getUsers);
         this.#router.post("/register", registerValidator.validate(), registerValidator.checkDuplicateEmail(), this.#userController.registerUser);
         this.#router.post("/login", this.#userController.loginUser);
+        this.#router.post("/update-password", authMiddleware, this.#userController.updatePassword);
+
 
         // Favourite locations routes
         this.#router.get("/favouriteLocations", authMiddleware, this.#favouritesController.getFavouriteLocations);

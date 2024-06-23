@@ -11,6 +11,21 @@ export default class UsersService {
         return await Users.find({}); // find({}) mean find all objects
     };
 
+    updatePassword = async (userId, currentPassword, newPassword) => { // Add updatePassword method
+        const user = await Users.findById(userId);
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        const isMatch = await bcrypt.compare(currentPassword, user.password);
+        if (!isMatch) {
+            throw new Error("Current password is incorrect");
+        }
+
+        user.password = await bcrypt.hash(newPassword, 10);
+        await user.save();
+    };
+
     registerUser = async (newUser) => {
         let user;
         try {
