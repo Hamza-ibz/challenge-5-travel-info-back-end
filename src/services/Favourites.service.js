@@ -4,11 +4,12 @@ export default class FavouritesService {
 
     // Favourite locations methods
     getFavouriteLocations = async (userId) => {
-        console.log(userId);
-        const user = await Users.findOne({ userId });
+        // console.log(userId);
+        const user = await Users.findById(userId);
         if (!user) {
             throw new Error("User not found");
         }
+        console.log(user);
         return user.favouriteLocations;
     };
 
@@ -26,9 +27,9 @@ export default class FavouritesService {
         return user;
     };
 
-    removeFavouriteLocation = async (email, location) => {
+    removeFavouriteLocation = async (userId, location) => {
         const user = await Users.findOneAndUpdate(
-            { email },
+            { _id: userId },
             { $pull: { favouriteLocations: { location } } },
             { new: true }
         );

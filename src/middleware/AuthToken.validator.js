@@ -23,7 +23,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'hamza_jwt_not-so-secret_key';
 
 const authMiddleware = (req, res, next) => {
     const authHeader = req.headers['authorization'];
-    console.log(authHeader);
+    // console.log(authHeader);
 
     if (!authHeader) {
         return res.status(401).json({ message: 'Access denied, no token provided' });

@@ -11,8 +11,9 @@ export default class FavouritesController {
     // Favourite locations methods
     getFavouriteLocations = async (req, res) => {
         try {
-            const email = req.email; // Email is extracted from the token by authMiddleware
-            const locations = await this.#service.getFavouriteLocations(email);
+            const userId = req.userId; // Email is extracted from the token by authMiddleware
+            console.log(userId);
+            const locations = await this.#service.getFavouriteLocations(userId);
             res.json(locations);
         } catch (e) {
             res.status(500).json({ message: e.message });
@@ -22,7 +23,7 @@ export default class FavouritesController {
     addFavouriteLocation = async (req, res) => {
         try {
             const userId = req.userId;
-            console.log(userId);
+            // console.log(userId);
             const { location } = req.body;
             const updatedUser = await this.#service.updateFavouriteLocations(userId, location);
             res.json(updatedUser);
@@ -33,9 +34,9 @@ export default class FavouritesController {
 
     removeFavouriteLocation = async (req, res) => {
         try {
-            const email = req.email;
+            const userId = req.userId;
             const { location } = req.body;
-            const updatedUser = await this.#service.removeFavouriteLocation(email, location);
+            const updatedUser = await this.#service.removeFavouriteLocation(userId, location);
             res.json(updatedUser);
         } catch (e) {
             res.status(500).json({ message: e.message });

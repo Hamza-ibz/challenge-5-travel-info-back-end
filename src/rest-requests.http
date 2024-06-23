@@ -47,15 +47,24 @@ content-type: application/json
 # Hamza!234
 ###
 GET http://localhost:3000/favouriteLocations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1ODBkMDFkOWE0Y2FhZmQ2ZmJjNmQiLCJpYXQiOjE3MTg5NzY3MzEsImV4cCI6MTcxODk4MDMzMX0.qtFt4hlqR8S6OeqqsR1_sU8YjlS4srXjSbh0o7fq88s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1OTNiODdjZGE2MDg2N2FhMmJhZDgiLCJpYXQiOjE3MTg5ODE1NjIsImV4cCI6MTcxOTA2Nzk2Mn0.jGSx7hQbZxs7gcI4SqOvt-OeD1-rlQMKOUfITSA62x4
 
 ###
-POST http://localhost:3000/favouriteLocations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1ODBkMDFkOWE0Y2FhZmQ2ZmJjNmQiLCJpYXQiOjE3MTg5NzY3MzEsImV4cCI6MTcxODk4MDMzMX0.qtFt4hlqR8S6OeqqsR1_sU8YjlS4srXjSbh0o7fq88s
+POST http://127.0.0.1:3000/favouriteLocations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1OTNiODdjZGE2MDg2N2FhMmJhZDgiLCJpYXQiOjE3MTg5ODE1NjIsImV4cCI6MTcxOTA2Nzk2Mn0.jGSx7hQbZxs7gcI4SqOvt-OeD1-rlQMKOUfITSA62x4
 Content-Type: application/json
 
 {
-    "location": "London"
+    "location": "New York"
+}
+
+###
+DELETE http://localhost:3000/favouriteLocations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1OTNiODdjZGE2MDg2N2FhMmJhZDgiLCJpYXQiOjE3MTg5ODE1NjIsImV4cCI6MTcxOTA2Nzk2Mn0.jGSx7hQbZxs7gcI4SqOvt-OeD1-rlQMKOUfITSA62x4
+Content-Type: application/json
+
+{
+    "location": "New York"
 }
 
 ###

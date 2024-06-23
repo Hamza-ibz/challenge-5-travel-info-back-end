@@ -1,12 +1,13 @@
 import { Schema, model } from "mongoose";
 
+const favouriteLocationSchema = new Schema({
+    location: { type: String, required: true }
+}, { _id: false });
+
 const usersSchema = new Schema({
     email: { type: String, unique: true, required: true },
     favouriteLocations: [
-        {
-            location: { type: String },
-
-        }
+        favouriteLocationSchema
     ],
     password: { type: String, required: true },
 });
