@@ -66,5 +66,33 @@ describe("UserController Unit Tests", () => {
         });
     });
 
+    describe("loginUser", () => {
+        it("should successfully log in a user and return a token", async () => {
+            // Arrange
+            const testUser = { email: "user1@example.com", token: "someToken" };
+            mockRequest.body = { email: "user1@example.com", password: "password" };
+            mockUserService.loginUser.resolves(testUser);
+
+            // Act
+            await userController.loginUser(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.json.calledWith(testUser)).to.be.true;
+        });
+
+        it("should return a 500 response when an error occurs during login", async () => {
+            // Arrange
+            const error = new Error("Invalid User");
+            mockRequest.body = { email: "user1@example.com", password: "wrongPassword" };
+            mockUserService.loginUser.rejects(error);
+
+            // Act
+            await userController.loginUser(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(500)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: error.message })).to.be.true;
+        });
+    });
 
 });
