@@ -38,6 +38,32 @@ describe("UserController Unit Tests", () => {
             expect(mockResponse.status.calledWith(201)).to.be.true;
             expect(mockResponse.json.calledWith(newUser)).to.be.true;
         });
+
+        it("should return a 400 response when the request body is null", async () => {
+            // Arrange
+            mockRequest.body = null;
+
+            // Act
+            await userController.registerUser(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(400)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: "Invalid User" })).to.be.true;
+        });
+
+        it("should return a 500 response when an error occurs during user registration", async () => {
+            // Arrange
+            const error = new Error("Unable to create User");
+            mockUserService.registerUser.rejects(error);
+            mockRequest.body = { email: "user1@example.com", password: "password" };
+
+            // Act
+            await userController.registerUser(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(500)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: error.message })).to.be.true;
+        });
     });
 
 
