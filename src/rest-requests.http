@@ -47,7 +47,7 @@ content-type: application/json
 # Hamza!234
 ###
 GET http://localhost:3000/favouriteLocations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1OTNiODdjZGE2MDg2N2FhMmJhZDgiLCJpYXQiOjE3MTg5ODE1NjIsImV4cCI6MTcxOTA2Nzk2Mn0.jGSx7hQbZxs7gcI4SqOvt-OeD1-rlQMKOUfITSA62x4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1OTNiODdjZGE2MDg2N2FhMmJhZDgiLCJpYXQiOjE3MTkwODA2NjAsImV4cCI6MTc1MDYxNjY2MH0.SE-MaA6_ePHxB4qvIvdtKDN2RNEib47Re4nG84Gnjsg
 
 ###
 POST http://127.0.0.1:3000/favouriteLocations
@@ -55,7 +55,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njc1O
 Content-Type: application/json
 
 {
-    "location": "New York"
+    "location": "China"
 }
 
 ###
