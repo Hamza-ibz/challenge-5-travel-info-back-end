@@ -95,4 +95,32 @@ describe("UserController Unit Tests", () => {
         });
     });
 
+    describe("getUsers", () => {
+        it("should return a list of users", async () => {
+            // Arrange
+            const users = [{ email: "user1@example.com" }];
+            mockUserService.getUsers.resolves(users);
+
+            // Act
+            await userController.getUsers(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.json.calledWith(users)).to.be.true;
+        });
+
+        it("should return a 500 response when an error occurs while retrieving users", async () => {
+            // Arrange
+            const error = new Error();
+            mockUserService.getUsers.rejects(error);
+
+            // Act
+            await userController.getUsers(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(500)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: error.message })).to.be.true;
+        });
+    });
+
+
 });
