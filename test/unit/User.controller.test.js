@@ -122,5 +122,31 @@ describe("UserController Unit Tests", () => {
         });
     });
 
+    describe("updatePassword", () => {
+        it("should successfully update the user's password", async () => {
+            // Arrange
+            mockRequest.body = { currentPassword: "oldPassword", newPassword: "newPassword" };
 
+            // Act
+            await userController.updatePassword(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(200)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: "Password updated successfully" })).to.be.true;
+        });
+
+        it("should return a 500 response when an error occurs during password update", async () => {
+            // Arrange
+            const error = new Error("Error updating password");
+            mockRequest.body = { currentPassword: "oldPassword", newPassword: "newPassword" };
+            mockUserService.updatePassword.rejects(error);
+
+            // Act
+            await userController.updatePassword(mockRequest, mockResponse);
+
+            // Assert
+            expect(mockResponse.status.calledWith(500)).to.be.true;
+            expect(mockResponse.json.calledWith({ message: error.message })).to.be.true;
+        });
+    });
 });
