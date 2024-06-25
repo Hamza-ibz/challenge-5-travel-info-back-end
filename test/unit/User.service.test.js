@@ -150,5 +150,65 @@ describe("UsersService Unit Tests", () => {
         });
     });
 
+    describe("updatePassword", () => {
+        it("should update the password for valid current password", async () => {
+            // Arrange
+            const userId = "1";
+            const currentPassword = "currentPassword";
+            const newPassword = "newPassword";
+            const user = { _id: "1", password: "hashedPassword", save: sinon.stub().resolves() };
+            const findByIdStub = sinon.stub(Users, "findById").resolves(user);
+            const compareStub = sinon.stub(bcrypt, "compare").resolves(true);
+            const hashStub = sinon.stub(bcrypt, "hash").resolves("newHashedPassword");
 
+            // Act
+            await usersService.updatePassword(userId, currentPassword, newPassword);
+
+            // Assert
+            expect(findByIdStub.calledOnce).to.be.true;
+            expect(compareStub.calledOnce).to.be.true;
+            expect(hashStub.calledOnce).to.be.true;
+            expect(user.save.calledOnce).to.be.true;
+            findByIdStub.restore();
+            compareStub.restore();
+            hashStub.restore();
+        });
+
+        it("should throw an error for incorrect current password", async () => {
+            // Arrange
+            const userId = "1";
+            const currentPassword = "currentPassword";
+            const newPassword = "newPassword";
+            const user = { _id: "1", password: "hashedPassword", save: sinon.stub().resolves() };
+            const findByIdStub = sinon.stub(Users, "findById").resolves(user);
+            const compareStub = sinon.stub(bcrypt, "compare").resolves(false);
+
+            // Act & Assert
+            try {
+                await usersService.updatePassword(userId, currentPassword, newPassword);
+                expect.fail("Expected error was not thrown");
+            } catch (err) {
+                expect(err.message).to.equal("Current password is incorrect");
+            }
+            findByIdStub.restore();
+            compareStub.restore();
+        });
+
+        it("should throw an error if user is not found", async () => {
+            // Arrange
+            const userId = "1";
+            const currentPassword = "currentPassword";
+            const newPassword = "newPassword";
+            const findByIdStub = sinon.stub(Users, "findById").resolves(null);
+
+            // Act & Assert
+            try {
+                await usersService.updatePassword(userId, currentPassword, newPassword);
+                expect.fail("Expected error was not thrown");
+            } catch (err) {
+                expect(err.message).to.equal("User not found");
+            }
+            findByIdStub.restore();
+        });
+    });
 });
