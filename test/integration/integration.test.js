@@ -68,15 +68,6 @@ describe("Integration Tests", () => {
     });
 
     describe("Update Password Tests", () => {
-        // it("should update the password for an existing user", async () => {
-        // const loginResponse = await request.post("/login").send({ email: testUsers[0].email, password: "Password123!" });
-        // const token = loginResponse.body.token;
-        // const response = await request
-        // .post("/update-password")
-        // .set("Authorization", `Bearer ${token}`)
-        // .send({ currentPassword: "Password123!", newPassword: "NewPassword123!" });
-        // expect(response.status).to.equal(200);
-        // });
         it("should return an error for incorrect current password", async () => {
             const loginResponse = await request.post("/login").send({ email: testUsers[0].email, password: "Password123!" });
             const token = loginResponse.body.token;

@@ -7,11 +7,11 @@ const JWT_SECRET = process.env.JWT_SECRET || 'hamza_jwt_not-so-secret_key';
 
 export default class UsersService {
     getUsers = async () => {
-        // return "Getting Todos from service";
+
         return await Users.find({}); // find({}) mean find all objects
     };
 
-    updatePassword = async (userId, currentPassword, newPassword) => { // Add updatePassword method
+    updatePassword = async (userId, currentPassword, newPassword) => {
         const user = await Users.findById(userId);
         if (!user) {
             throw new Error("User not found");
@@ -35,7 +35,6 @@ export default class UsersService {
             throw new Error("Invalid User");
         }
 
-        // console.log(await bcrypt.compare("securepassword", newUser.password));
         return await user.save();
     };
 

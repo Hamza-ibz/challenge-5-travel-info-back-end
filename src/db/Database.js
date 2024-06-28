@@ -10,7 +10,6 @@ export default class Database {
     }
 
     // async means running a function after something else happens
-    // async means running a function after something else happens
     connect = async () => {
         // do {
         try {

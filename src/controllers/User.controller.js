@@ -11,12 +11,11 @@ export default class UserController {
         try {
             res.json(await this.#service.getUsers());
         } catch (e) {
-            // console.log(e);
             res.status(500).json({ message: e.message });
         }
     };
 
-    updatePassword = async (req, res) => { // Add updatePassword method
+    updatePassword = async (req, res) => {
         try {
             const { currentPassword, newPassword } = req.body;
             const userId = req.userId;
@@ -56,3 +55,4 @@ export default class UserController {
     };
 
 }
+
