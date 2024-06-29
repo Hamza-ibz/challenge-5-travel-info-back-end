@@ -10,8 +10,8 @@ content-type: application/json
 
 {
 
-    "email": "test16@example.com",
-    "password": "securepassword",
+    "email": "test100@example.com",
+    "password": "securepasswordD1@3",
     "favouriteLocations": [
 
     ]
@@ -37,7 +37,7 @@ content-type: application/json
 
 {
 
-    "email": "test16@example.com",
+    "email": "test16@exampl.com",
     "password": "securepassword",
     "favouriteLocations": [
 
